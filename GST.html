@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Guide to Indirect Taxation & GST</title>
+    <style>
+        /* CSS Reset & Variable Defaults */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Base Typography */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 12px;
+        }
+
+        /* Responsive Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Document Header */
+        .doc-header {
+            text-align: center;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
+        }
+
+        .doc-header h1 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0 0 4px 0;
+        }
+
+        .doc-header p {
+            font-size: 0.85rem;
+            font-style: italic;
+            margin: 0;
+            color: #222222;
+        }
+
+        /* Headings */
+        h2 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-top: 1.5px solid #000000;
+            border-bottom: 1.5px solid #000000;
+            padding: 6px 0;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 14px;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        /* Definition Blocks */
+        .def-block {
+            margin-bottom: 12px;
+            padding: 6px 0;
+        }
+
+        .def-title {
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-block;
+        }
+
+        /* Callout Box */
+        .callout-box {
+            border: 1px solid #000000;
+            border-left: 4px solid #000000;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            background-color: #f9f9f9;
+        }
+
+        .callout-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            margin-bottom: 4px;
+        }
+
+        /* Table Wrappers for Responsive Horizontal Scroll */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 8px;
+            margin-bottom: 14px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 480px; /* Ensures text inside table does not compress on small screens */
+        }
+
+        th, td {
+            border: 1px solid #000000;
+            padding: 8px 6px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #e6e6e6;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Flowchart Diagram */
+        .diagram-box {
+            border: 1px solid #000000;
+            padding: 12px;
+            margin: 12px 0;
+            background-color: #fafafa;
+            text-align: center;
+        }
+
+        .diagram-title {
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .tree-root {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .tree-branches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .tree-node {
+            border: 1px solid #333333;
+            padding: 8px 12px;
+            background: #ffffff;
+            border-radius: 4px;
+            flex: 1 1 200px;
+            max-width: 320px;
+            font-size: 0.85rem;
+        }
+
+        .node-title {
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+
+        /* Mathematical Formulas */
+        .formula-box {
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            padding: 8px;
+            border: 1px dashed #000000;
+            margin: 10px 0;
+            background-color: #fcfcfc;
+        }
+
+        /* Print Media Styles */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 20mm 15mm;
+            }
+
+            body {
+                font-size: 9.5pt;
+                line-height: 1.45;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            table {
+                min-width: 100%;
+                font-size: 8.5pt;
+            }
+
+            .table-wrapper {
+                overflow-x: visible;
+            }
+
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+
+            .def-block, .callout-box, table, .diagram-box, .formula-box {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Larger Device Adjustments */
+        @media (min-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            .doc-header h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- DOCUMENT HEADER -->
+    <div class="doc-header">
+        <h1>GST LAWS & INDIRECT TAXATION</h1>
+    </div>
+
+    <!-- MODULE 1: FOUNDATIONS OF GST -->
+    <h2>1. FOUNDATION OF GST</h2>
+    
+    <h3>1.1 Introduction & Core Principles</h3>
+    <p><strong>Goods and Services Tax (GST)</strong> is a comprehensive, multi-stage, destination-based tax system levied on the supply of goods and services. It was introduced in India on <strong>July 1, 2017</strong>, via the <strong>101st Constitutional Amendment Act, 2016</strong>.</p>
+    <ul>
+        <li><strong>Destination-Based Consumption Tax:</strong> Tax revenue accrues to the jurisdiction where the final consumption takes place rather than where goods or services originate.</li>
+        <li><strong>Value Addition Model:</strong> Tax is collected at every stage of the supply chain, allowing tax paid on procurement as an offset via Input Tax Credit (ITC).</li>
+        <li><strong>Removal of Cascading Effect:</strong> By allowing seamless credit flow, GST eliminates the "tax-on-tax" structure of earlier indirect tax regimes.</li>
+    </ul>
+
+    <h3>1.2 Subsumed Taxes & Exclusions</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Jurisdiction Level</th>
+                    <th style="width: 70%;">Subsumed Taxes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Central Level</strong></td>
+                    <td>Central Excise Duty, Service Tax, Additional Customs Duty (CVD), Special Additional Duty (SAD), Central Cesses and Surcharges.</td>
+                </tr>
+                <tr>
+                    <td><strong>State Level</strong></td>
+                    <td>State VAT/Sales Tax, Central Sales Tax (CST), Entry Tax/Octroi, Entertainment Tax, Luxury Tax, Taxes on Lotteries.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout-box">
+        <div class="callout-title">Key Constitutional Exclusions</div>
+        <strong>Alcoholic liquor for human consumption</strong> remains constitutionally outside GST. Petroleum crude, high-speed diesel, motor spirit (petrol), natural gas, and aviation turbine fuel are constitutionally included but temporarily kept outside GST until notified by the GST Council.
+    </div>
+
+    <h3>1.3 Dual GST Model</h3>
+    <p>India adopted a <strong>Concurrent Dual GST Model</strong> to uphold national federal architecture, allowing both the Union and the States/Union Territories to simultaneously tax supply transactions.</p>
+
+    <div class="diagram-box">
+        <div class="diagram-title">GST Structure</div>
+        <div class="tree-root">
+            <div class="tree-branches">
+                <div class="tree-node">
+                    <div class="node-title">Intra-State Supply</div>
+                    <div>(Within same State/UT)</div>
+                    <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ccc;">
+                    <div><strong>CGST</strong> (Centre) + <strong>SGST / UTGST</strong> (State/UT)</div>
+                </div>
+                <div class="tree-node">
+                    <div class="node-title">Inter-State Supply</div>
+                    <div>(Between two States/UTs)</div>
+                    <hr style="margin: 6px 0; border: 0; border-top: 1px solid #ccc;">
+                    <div><strong>IGST</strong> (Collected by Centre, apportioned to States)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li><strong>Central GST (CGST):</strong> Levied by the Central Government on intra-state supplies.</li>
+        <li><strong>State GST (SGST) / UTGST:</strong> Levied by State Governments or UTs (with or without legislature) on intra-state supplies.</li>
+        <li><strong>Integrated GST (IGST):</strong> Levied by the Centre on inter-state supplies and imports. IGST is collected by the Centre and subsequently apportioned between the Centre and the destination State.</li>
+    </ul>
+
+    <h3>1.4 GST Council (Article 279A)</h3>
+    <p>The GST Council is a constitutional body established under <strong>Article 279A</strong> of the Indian Constitution to serve as the apex decision-making body for indirect tax policy.</p>
+    <ul>
+        <li><strong>Composition:</strong> Union Finance Minister (Chairperson), Union Minister of State in charge of Revenue/Finance, and Finance/Taxation Ministers of each State Government.</li>
+        <li><strong>Quorum & Decision Threshold:</strong> Quorum requires <strong>50%</strong> of total members. Decisions require a <strong>3/4th (75%) majority</strong> of weighted votes of members present and voting.
+            <ul>
+                <li><strong>Central Government Vote Weight:</strong> 1/3rd (33.33%) of total votes cast.</li>
+                <li><strong>State Governments Vote Weight:</strong> 2/3rds (66.67%) of total votes cast collectively.</li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <!-- MODULE 2: CGST ACT - SECTION 2 DEFINITIONS -->
+    <h2>2. CGST ACT, 2017 — IMPORTANT SECTION 2 DEFINITIONS</h2>
+    <p>All definitions under Section 2 are structured categorically for regulatory clarity.</p>
+
+    <h3>2.1 Supply & Transaction Definitions</h3>
+    
+    <div class="def-block">
+        <span class="def-title">Section 2(1) — Actionable Claim:</span>
+        Claim to any unsecured debt or beneficial interest in movable property not in possession. Treated as goods; however, under Schedule III, only specified actionable claims (lottery, betting, gambling, horse racing, online gaming) are taxable.
+        <div class="callout-box">
+            <div class="callout-title">Exam Trap</div>
+            All actionable claims are NOT taxable; only specific ones (e.g., lottery, betting, gambling, online gaming) are subject to GST. Claiming insurance money is a non-taxable actionable claim.
+        </div>
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(31) — Consideration:</span>
+        Any payment made or to be made, or any act or forbearance, in respect of, in response to, or for the inducement of supply (monetary or non-monetary). Includes payments by recipient or third parties, but excludes subsidies provided by Central or State Governments.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(47) — Exempt Supply:</span>
+        Supply attracting a nil rate of tax or wholly exempt under Section 11 (CGST) or Section 6 (IGST), including non-taxable supply.
+        <div class="callout-box">
+            <div class="callout-title">Exam Trap</div>
+            Exempt supply includes non-taxable supply. Do not confuse Exempt Supply with Zero-Rated Supply (exports are zero-rated, not exempt).
+        </div>
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(52) — Goods:</span>
+        Every kind of movable property other than money and securities. Includes actionable claims, growing crops, grass, and things attached to or forming part of the land agreed to be severed before supply.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(78) — Non-Taxable Supply:</span>
+        Supply of goods or services not leviable to tax under CGST or IGST Act (e.g., alcoholic liquor for human consumption, petroleum products).
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(102) — Services:</span>
+        Anything other than goods, money, and securities. Includes activities relating to the use of money or its conversion for which a separate consideration is charged.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(108) — Taxable Supply:</span>
+        A supply of goods or services or both which is leviable to tax under the CGST Act.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(119) — Works Contract:</span>
+        A contract for building, construction, fabrication, erection, installation, fitting out, repair, maintenance, renovation, or alteration of any immovable property wherein transfer of property in goods is involved.
+    </div>
+
+    <h3>2.2 Stakeholders, Persons & Location Definitions</h3>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(5) — Agent:</span> A person (including factor, broker, commission agent, del credere agent, or auctioneer) who carries on the business of supply or receipt of goods/services on behalf of another.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(17) — Business:</span> Includes trade, commerce, manufacture, profession, vocation, or any activity for consideration, regardless of volume, frequency, or pecuniary benefit (profit motive is NOT necessary).
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(20) — Casual Taxable Person (CTP):</span> A person who occasionally undertakes transactions involving supply in a State/UT where he has no fixed place of business.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(50) — Fixed Establishment:</span> A place (other than registered place of business) characterized by a sufficient degree of permanence and suitable structure (human and technical resources) to supply or receive services.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(56) — India:</span> The territory of India, including territorial waters, seabed and subsoil, continental shelf, exclusive economic zone (EEZ), and airspace above India.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(68) — Job Work:</span> Any treatment or process undertaken by a person on goods belonging to another registered person (ownership remains with the principal).
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(69) — Local Authority:</span> Municipality, Panchayat, Municipal Committee, Zila Parishad, or any authority legally entitled to manage local funds.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(71) — Location of Supplier:</span> Place of business or fixed establishment from where supply is made, or place most directly concerned with the supply.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(77) — Non-Resident Taxable Person (NRTP):</span> Any person who occasionally undertakes supply of goods/services but has no fixed place of business or residence in India.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(84) — Person:</span> Includes Individual, HUF, Company, Firm, LLP, AOP/BOI, Corporation, Local Authority, Government, Trust, and Artificial Juridical Person.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(86) — Place of Supply:</span> Location where supply is deemed to occur, determined as per Chapter III of the IGST Act.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(90) — Principal Place of Business:</span> Place of business specified as the principal place in the certificate of registration.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(93) — Recipient:</span> Person liable to pay consideration. Where no consideration is payable, the person to whom goods are delivered/made available or service is rendered.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(105) — Supplier:</span> Any person supplying goods or services or both, including an agent acting on behalf of such supplier.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(107) — Taxable Person:</span> A person who is registered or liable to be registered under Section 22 or Section 24.
+    </div>
+
+    <h3>2.3 Turnover, Tax & Credit Provisions</h3>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(6) — Aggregate Turnover:</span> Total value of all taxable supplies (excluding inward supplies under RCM), exempt supplies, exports, and inter-State supplies of persons having the same PAN, calculated on an all-India basis. Excludes CGST, SGST, UTGST, IGST, and Cess.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(11) — Assessment:</span> Determination of tax liability under GST, including self-assessment (Sec 59), provisional assessment (Sec 60), scrutiny assessment (Sec 61), and best judgment assessment (Sec 62).
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(19) — Capital Goods:</span> Goods whose value is capitalized in the books of account of the person claiming ITC and used in the course or furtherance of business.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(59) & 2(60) — Input & Input Service:</span> Any goods (other than capital goods) or services used or intended to be used by a supplier in the course or furtherance of business.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(61) — Input Service Distributor (ISD):</span> Office of the supplier receiving tax invoices for input services and issuing a prescribed document to distribute credit to branches having the same PAN.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(62) — Input Tax:</span> Tax charged on supply of goods/services including RCM tax paid and IGST on imports; excludes tax paid under Composition Scheme.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(63) — Input Tax Credit (ITC):</span> Credit of input tax available to offset output tax liability.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(82) — Output Tax:</span> Tax chargeable on taxable supply made by a taxable person or agent; excludes tax payable under reverse charge.
+    </div>
+
+    <div class="def-block">
+        <span class="def-title">Section 2(98) — Reverse Charge Mechanism (RCM):</span> Liability to pay tax by the recipient of supply instead of the supplier.
+    </div>
+
+
+    <!-- MODULE 3: SCOPE OF SUPPLY & CHARGE OF TAX -->
+    <h2>3. SCOPE OF SUPPLY, LEVY & CHARGEABLE EVENTS</h2>
+
+    <h3>3.1 Scope of Supply (Section 7)</h3>
+    <p>Supply is the ultimate taxable event under GST.</p>
+    <ul>
+        <li><strong>Section 7(1)(a) — Supply for Consideration:</strong> Includes sale, transfer, barter, exchange, license, rental, lease, or disposal made for consideration in the course or furtherance of business.</li>
+        <li><strong>Section 7(1)(b) — Import of Services:</strong> Import of services for consideration, whether or not in the course or furtherance of business.</li>
+        <li><strong>Section 7(1)(c) — Schedule I Transactions:</strong> Activities treated as supply even without consideration:
+            <ol>
+                <li>Permanent transfer/disposal of business assets where ITC has been availed.</li>
+                <li>Supply between related or distinct persons in the course of business (including branch transfers).</li>
+                <li>Supply between principal and agent.</li>
+                <li>Import of services by a person from a related person or establishment outside India for business.</li>
+            </ol>
+        </li>
+        <li><strong>Section 7(1)(d) — Schedule II Classification:</strong> Classifies whether transactions constitute a supply of Goods OR Services (does NOT determine supply existence).
+            <ul>
+                <li><em>Supply of Goods:</em> Title transfer in goods; transfer of business assets.</li>
+                <li><em>Supply of Services:</em> Renting immovable property, works contracts, software licensing, temporary IP transfer.</li>
+            </ul>
+        </li>
+        <li><strong>Section 7(2) — Schedule III (Non-Supplies):</strong> Activities outside GST purview:
+            <ul>
+                <li>Services by employee to employer in course of employment.</li>
+                <li>Services by courts/tribunals, MPs, MLAs, and constitutional authorities.</li>
+                <li>Sale of land and sale of completed building (after completion certificate).</li>
+                <li>Funeral, burial, crematorium, or mortuary services.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>3.2 Levy & Collection of CGST/IGST (Section 9 & Section 11)</h3>
+    <ul>
+        <li><strong>Section 9(1):</strong> Charging section for CGST on intra-state supplies at rates not exceeding 20%.</li>
+        <li><strong>Section 9(3) — Reverse Charge Mechanism (RCM):</strong> Recipient pays tax on notified goods/services (e.g., Legal services by advocates, GTA, Sponsorship).</li>
+        <li><strong>Section 9(4) — RCM on Unregistered Suppliers:</strong> Applicable only to specified classes of registered persons/goods.</li>
+        <li><strong>Section 11 — Exemptions:</strong> Absolute exemption (mandatory; no tax payable) vs. Conditional exemption (optional based on conditions satisfied).</li>
+    </ul>
+
+    <h3>3.3 Composition Levy (Section 10)</h3>
+    <p>Simplified scheme for small taxpayers (aggregate turnover up to ₹1.5 Crore; ₹75 Lakh for special category States) paying tax at a fixed percentage of turnover without ITC benefit.</p>
+
+
+    <!-- MODULE 4: TIME & VALUE OF SUPPLY -->
+    <h2>4. TIME AND VALUE OF SUPPLY</h2>
+
+    <h3>4.1 Time of Supply (Sections 12, 13, 14)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Category</th>
+                    <th style="width: 40%;">Forward Charge (Earliest of)</th>
+                    <th style="width: 40%;">Reverse Charge / RCM (Earliest of)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Goods (Sec 12)</strong></td>
+                    <td>1. Date of invoice issue<br>2. Last date to issue invoice (Sec 31)<br>3. Date payment is recorded/credited</td>
+                    <td>1. Date of receipt of goods<br>2. Date of payment<br>3. 30 days from supplier invoice date</td>
+                </tr>
+                <tr>
+                    <td><strong>Services (Sec 13)</strong></td>
+                    <td>1. Date of invoice (if issued within 30 days)<br>2. Date of service completion (if invoice delayed)<br>3. Date of payment</td>
+                    <td>1. Date of payment<br>2. 60 days from supplier invoice date</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="callout-box">
+        <div class="callout-title">Section 14: Rate Change Overrides</div>
+        Section 14 overrides Sections 12 & 13 when a change in tax rate occurs during a supply transaction spanning before and after the rate change.
+    </div>
+
+    <h3>4.2 Value of Supply (Section 15)</h3>
+    <p>Value of supply equals the <strong>Transaction Value</strong> (price actually paid/payable when parties are unrelated and price is sole consideration).</p>
+    <ul>
+        <li><strong>Mandatory Inclusions [Sec 15(2)]:</strong> Non-GST taxes/duties, incidental expenses (packing, loading), third-party payments borne by recipient, late fees/interest for delayed payment, and price-linked non-government subsidies.</li>
+        <li><strong>Exclusions [Sec 15(3)]:</strong> Pre-supply discounts shown on invoice, or post-supply discounts established by agreement linked to specific invoices where recipient reverses proportionate ITC.</li>
+    </ul>
+
+
+    <!-- MODULE 5: INPUT TAX CREDIT (ITC) -->
+    <h2>5. INPUT TAX CREDIT (ITC) PROVISIONS</h2>
+
+    <h3>5.1 Eligibility & Core Conditions (Section 16)</h3>
+    <ul>
+        <li>Must possess tax invoice, debit note, or prescribed tax document.</li>
+        <li>Must have received goods or services.</li>
+        <li>Tax charged must have been actually paid to the Government.</li>
+        <li>Must have filed valid returns under Section 39 (GSTR-3B).</li>
+        <li><strong>180-Day Payment Rule:</strong> Recipient must pay supplier within 180 days from invoice date; failure leads to ITC reversal with interest.</li>
+    </ul>
+
+    <h3>5.2 Apportionment & Blocked Credit (Section 17)</h3>
+    <p><strong>Section 17(1) & (2):</strong> Proportionate credit allowed exclusively for business and taxable supplies (Rules 42 & 43 apply). Banks can opt for 50% flat monthly ITC under Sec 17(4).</p>
+
+    <div class="callout-box">
+        <div class="callout-title">Section 17(5) — Blocked Credits (No ITC)</div>
+        ITC is explicitly disallowed on: Motor vehicles (with specific passenger exceptions), food & beverages, outdoor catering, beauty treatment, health services, club memberships, works contract services for immovable property construction (capital account), personal consumption, and goods lost, stolen, or destroyed.
+    </div>
+
+    <h3>5.3 Special ITC Cases & Job Work (Sections 18, 19, 20)</h3>
+    <ul>
+        <li><strong>Section 18:</strong> Special eligibility upon new registration, voluntary registration, or switching from composition to regular scheme (5% reduction per quarter for capital goods).</li>
+        <li><strong>Section 19 (Job Work):</strong> Principal can claim ITC on inputs/capital goods sent to a job worker. Inputs must return within 1 year; capital goods within 3 years (else deemed supply).</li>
+        <li><strong>Section 20 (ISD):</strong> Input Service Distributor allocates input service credit across branches based on turnover.</li>
+    </ul>
+
+
+    <!-- MODULE 6: COMPLIANCE, INVOICING & RETURNS -->
+    <h2>6. REGISTRATION, INVOICING, RETURNS & PAYMENTS</h2>
+
+    <h3>6.1 Registration Provisions (Sections 22, 23, 24, 25, 29)</h3>
+    <ul>
+        <li><strong>Section 22 Thresholds:</strong> Normal States: ₹40 Lakh (Goods) / ₹20 Lakh (Services). Special Category States: ₹20 Lakh (Goods) / ₹10 Lakh (Services).</li>
+        <li><strong>Section 23 Exemption:</strong> Persons dealing exclusively in exempt supplies or agriculturists.</li>
+        <li><strong>Section 24 Compulsory Registration:</strong> Inter-state taxable suppliers, CTPs, NRTPs, RCM recipients, E-commerce operators, and ISDs must register irrespective of turnover threshold.</li>
+        <li><strong>Section 25 Procedure:</strong> Application within 30 days of liability on PAN-basis. Establishments in different States are treated as <em>Distinct Persons</em>.</li>
+        <li><strong>Section 29 Cancellation:</strong> Proper officer can cancel for non-filing of returns (6 continuous months for regular; 3 quarters for composition).</li>
+    </ul>
+
+    <h3>6.2 Invoicing & Documents (Sections 31, 33, 34, 35)</h3>
+    <ul>
+        <li><strong>Section 31 Time Limit:</strong> Goods: Before or at removal/delivery. Services: Within 30 days (45 days for banks) from supply.</li>
+        <li><strong>Section 34 Notes:</strong> Credit Notes (reduce tax liability for returns/defects) & Debit Notes (increase tax liability).</li>
+        <li><strong>Section 35/36 Accounts:</strong> Books of accounts must be retained for 72 months (6 years) from the due date of filing the Annual Return.</li>
+    </ul>
+
+    <h3>6.3 Tax Returns Framework (Sections 37, 38, 39, 44)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Return Form</th>
+                    <th style="width: 40%;">Scope / Purpose</th>
+                    <th style="width: 40%;">Due Date Rules</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>GSTR-1</strong></td>
+                    <td>Details of Outward Supplies (Sales)</td>
+                    <td>11th of the following month (Monthly filers)</td>
+                </tr>
+                <tr>
+                    <td><strong>GSTR-2B</strong></td>
+                    <td>Auto-generated static ITC statement</td>
+                    <td>Available on 14th of the following month</td>
+                </tr>
+                <tr>
+                    <td><strong>GSTR-3B</strong></td>
+                    <td>Summary return with tax payment liability</td>
+                    <td>20th of the following month</td>
+                </tr>
+                <tr>
+                    <td><strong>GSTR-9 / 9A</strong></td>
+                    <td>Consolidated Annual Return</td>
+                    <td>31st December following the end of Financial Year</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>6.4 Payment of Tax & Credit Utilization Order (Sections 49, 49A, 49B)</h3>
+    <p>Every taxpayer maintains 3 Electronic Ledgers: Cash Ledger, Credit Ledger (ITC), and Liability Register.</p>
+
+    <div class="formula-box">
+        Mandatory Order: IGST Credit must be 100% utilized prior to using CGST or SGST Credit.
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 30%;">Credit Type</th>
+                    <th style="width: 35%;">First Priority Set-off</th>
+                    <th style="width: 35%;">Second Priority Set-off</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>IGST Credit</strong></td>
+                    <td>IGST Liability</td>
+                    <td>CGST and SGST/UTGST (in any order)</td>
+                </tr>
+                <tr>
+                    <td><strong>CGST Credit</strong></td>
+                    <td>CGST Liability</td>
+                    <td>IGST Liability (SGST set-off PROHIBITED)</td>
+                </tr>
+                <tr>
+                    <td><strong>SGST Credit</strong></td>
+                    <td>SGST Liability</td>
+                    <td>IGST Liability (CGST set-off PROHIBITED)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>6.5 Interest, TDS, TCS & Refunds</h3>
+    <ul>
+        <li><strong>Section 50 Interest:</strong> Delay in tax payment: 18% p.a. (on net cash liability). Wrong ITC availed & utilized: 24% p.a.</li>
+        <li><strong>Section 51 TDS:</strong> 2% tax deduction by Government entities on contracts exceeding ₹2.5 Lakh.</li>
+        <li><strong>Section 52 TCS:</strong> Up to 1% tax collection at source by e-commerce operators on net value.</li>
+        <li><strong>Section 54 Refund:</strong> Application within 2 years from relevant date. Exporters get 90% provisional refund within 7 days. Subject to unjust enrichment unless proven.</li>
+    </ul>
+
+
+    <!-- MODULE 7: AUDIT, DEMANDS, PENALTIES & APPEALS -->
+    <h2>7. AUDIT, ENFORCEMENT, PENALTIES & APPEALS</h2>
+
+    <h3>7.1 Audit & Enforcement Powers (Sections 65, 66, 67)</h3>
+    <ul>
+        <li><strong>Section 65 (Departmental Audit):</strong> Conducted by officers at business premises; 15 days prior notice; complete within 3 months.</li>
+        <li><strong>Section 66 (Special Audit):</strong> Directed by Deputy/Assistant Commissioner; conducted by external CA/CMA; complete within 90 days.</li>
+        <li><strong>Section 67 (Inspection, Search & Seizure):</strong> Triggered by Joint Commissioner authorization on "reason to believe" tax evasion occurred.</li>
+    </ul>
+
+    <h3>7.2 Demand and Recovery (Sections 73, 74, 76, 79)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Feature</th>
+                    <th style="width: 37%;">Section 73 (Non-Fraud / Bona fide)</th>
+                    <th style="width: 38%;">Section 74 (Fraud / Intentional Evasion)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Adjudication Limit</strong></td>
+                    <td>3 Years from annual return due date</td>
+                    <td>5 Years from annual return due date</td>
+                </tr>
+                <tr>
+                    <td><strong>Penalty Charged</strong></td>
+                    <td>Nil or 10% of tax amount</td>
+                    <td>100% of tax amount</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>7.3 Prosecution & Offence Slabs (Section 132)</h3>
+    <ul>
+        <li><strong>Tax Evaded &gt; ₹5 Crore:</strong> Imprisonment up to 5 years + Fine.</li>
+        <li><strong>Tax Evaded ₹2 Crore – ₹5 Crore:</strong> Imprisonment up to 3 years + Fine.</li>
+        <li><strong>Tax Evaded ₹1 Crore – ₹2 Crore:</strong> Imprisonment up to 1 year + Fine.</li>
+    </ul>
+
+    <h3>7.4 Appeals Hierarchy & Pre-Deposits (Sections 107 & 112)</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 35%;">Appellate Forum</th>
+                    <th style="width: 30%;">Statutory Limitation</th>
+                    <th style="width: 35%;">Mandatory Pre-Deposit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>First Appellate Authority (Sec 107)</strong></td>
+                    <td>3 Months from order date</td>
+                    <td>10% of disputed tax amount</td>
+                </tr>
+                <tr>
+                    <td><strong>GST Appellate Tribunal / GSTAT (Sec 112)</strong></td>
+                    <td>3 Months from appellate order</td>
+                    <td>20% of disputed tax amount (additional)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- MODULE 8: IGST ACT & CUSTOMS ACT -->
+    <h2>8. INTEGRATED GST (IGST) ACT & CUSTOMS ACT PROVISIONS</h2>
+
+    <h3>8.1 IGST Act Key Sections</h3>
+    <ul>
+        <li><strong>Section 5 (Levy of IGST):</strong> Charged on inter-state supplies and imports (IGST = CGST + SGST).</li>
+        <li><strong>Section 7 (Inter-State Supply):</strong> Location of Supplier ≠ Place of Supply; includes imports, exports, and SEZ units.</li>
+        <li><strong>Section 8 (Intra-State Supply):</strong> Location of Supplier = Place of Supply (excludes SEZ and foreign trade).</li>
+        <li><strong>Section 10 & 11 (POS Goods):</strong> Location where movement terminates; for imports, location of importer.</li>
+        <li><strong>Section 12 & 13 (POS Services):</strong> General rule: Location of recipient. Exceptions apply for immovable property, physical performance, passenger transport, and intermediary services.</li>
+        <li><strong>Section 16 (Zero-Rated Supply):</strong> Exports & SEZ supplies. Option to supply under LUT without tax or pay IGST and claim refund.</li>
+    </ul>
+
+    <h3>8.2 Customs Act, 1962 Core Provisions</h3>
+    <ul>
+        <li><strong>Section 12 (Charging Section):</strong> Customs duty levied on imports and exports.</li>
+        <li><strong>Section 14 (Valuation):</strong> Assessable Value = Transaction Value on CIF basis (Cost, Insurance, Freight). Excludes post-importation expenses.</li>
+        <li><strong>Section 15 & 16 (Relevant Dates):</strong> Imports: Date of Bill of Entry or Entry Inwards (whichever is later). Exports: Date proper officer passes order permitting clearance (Shipping Bill date).</li>
+        <li><strong>Section 22 & 23 (Abatement/Remission):</strong> Section 22 grants duty abatement for damage; Section 23 remits duty for lost, destroyed, or abandoned goods.</li>
+        <li><strong>Section 28 (Recovery):</strong> Demand notice within 2 years (normal) or 5 years (fraud/collusion).</li>
+        <li><strong>Section 74 & 75 (Duty Drawback):</strong> Sec 74 grants 98% drawback on re-export of imported goods within 2 years. Sec 75 grants drawback on materials used in exported manufactured goods.</li>
+    </ul>
+
+
+    <!-- MODULE 9: QUICK REVISION INDEX -->
+    <h2>9. QUICK REVISION INDEX</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Section Code</th>
+                    <th style="width: 35%;">Topic Title</th>
+                    <th style="width: 45%;">Core Principle / Key Threshold</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sec 2(17)</strong></td>
+                    <td>Business</td>
+                    <td>Includes any commercial activity regardless of profit motive or frequency.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 2(31)</strong></td>
+                    <td>Consideration</td>
+                    <td>Monetary/non-monetary payment; excludes Govt subsidies.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 7</strong></td>
+                    <td>Scope of Supply</td>
+                    <td>Taxable event under GST; includes Schedule I, II, III.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 12 & 13</strong></td>
+                    <td>Time of Supply</td>
+                    <td>Determines tax point liability for Goods (30 days RCM) / Services (60 days RCM).</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 15</strong></td>
+                    <td>Value of Supply</td>
+                    <td>Transaction Value; includes non-GST taxes, excludes pre-agreed discounts.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 16 & 17</strong></td>
+                    <td>ITC & Blocked Credits</td>
+                    <td>Conditions for credit claim; Sec 17(5) lists blocked items (vehicles, catering).</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 50</strong></td>
+                    <td>Interest Liability</td>
+                    <td>18% p.a. on net delayed payment; 24% p.a. on wrongly utilized ITC.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 51 & 52</strong></td>
+                    <td>TDS & TCS</td>
+                    <td>TDS @ 2% (&gt; ₹2.5L Govt contract); TCS @ 1% (E-Commerce).</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 54</strong></td>
+                    <td>Tax Refund</td>
+                    <td>2-Year limitation period; 90% provisional refund for exports within 7 days.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sec 73 & 74</strong></td>
+                    <td>Demands</td>
+                    <td>Sec 73: Non-Fraud (3-yr limit, 10% penalty) | Sec 74: Fraud (5-yr limit, 100% penalty).</td>
+                </tr>
+                <tr>
+                    <td><strong>IGST Sec 7</strong></td>
+                    <td>Inter-State Supply</td>
+                    <td>Supplier Location ≠ Place of Supply; covers SEZ, imports, exports.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

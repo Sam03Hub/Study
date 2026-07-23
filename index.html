@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes</title>
+    <style>
+        /* CSS Reset & Variables */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --accent-color: #2563eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 20px 16px;
+        }
+
+        /* Container */
+        .dashboard-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.025em;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        /* Filter Container */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border-color: var(--accent-color);
+        }
+
+        /* Grid Layout for Subject Boxes */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Clickable Topic Card */
+        .topic-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Card Hidden State for Filtering */
+        .topic-card.is-hidden {
+            display: none;
+        }
+
+        /* Hover & Focus Effects */
+        .topic-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent-color);
+        }
+
+        /* Top Accent Indicator Bar */
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var(--accent-color);
+            opacity: 0.8;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: #eff6ff;
+            color: var(--accent-color);
+            letter-spacing: 0.5px;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .card-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .card-footer {
+            margin-top: 18px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (min-width: 640px) {
+            body {
+                padding: 40px 24px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header>
+            <h1>Study Notes</h1>
+        </header>
+
+        <!-- Dynamic Filter Bar Container -->
+        <div class="filter-container" id="filterBar">
+            <button class="filter-btn active" data-filter="all">All</button>
+        </div>
+
+        <!-- Topic Cards Grid -->
+        <div class="topic-grid">
+
+            <!-- Card 1: GST -->
+            <a href="GST.html" class="topic-card">
+                <div>
+                    <div class="card-header">
+                        <span class="card-tag">Taxation</span>
+                    </div>
+                    <div class="card-title">GST & Indirect Tax</div>
+                    <div class="card-desc">Comprehensive notes covering CGST, IGST and Customs Law.</div>
+                </div>
+                <div class="card-footer">
+                    Open Notes &rarr;
+                </div>
+            </a>
+
+            <!-- <a href="Mathematics.html" class="topic-card"> -->
+                <!-- <div> -->
+                    <!-- <div class="card-header"> -->
+                        <!-- <span class="card-tag">Aptitude</span> -->
+                    <!-- </div> -->
+                    <!-- <div class="card-title">Mathematics</div> -->
+                    <!-- <div class="card-desc">Key formulas, chapter roadmaps, problem-solving tricks, and quick revision indexes.</div> -->
+                <!-- </div> -->
+                <!-- <div class="card-footer"> -->
+                    <!-- Open Notes &rarr; -->
+                <!-- </div> -->
+            <!-- </a> -->
+			
+
+            <!-- <a href="Reasoning.html" class="topic-card"> -->
+                <!-- <div> -->
+                    <!-- <div class="card-header"> -->
+                        <!-- <span class="card-tag">Logic</span> -->
+                    <!-- </div> -->
+                    <!-- <div class="card-title">Logical Reasoning</div> -->
+                    <!-- <div class="card-desc">Analytical reasoning frameworks, puzzles, syllogisms, and concept breakdowns.</div> -->
+                <!-- </div> -->
+                <!-- <div class="card-footer"> -->
+                    <!-- Open Notes &rarr; -->
+                <!-- </div> -->
+            <!-- </a> -->
+
+            <!-- <a href="English.html" class="topic-card"> -->
+                <!-- <div> -->
+                    <!-- <div class="card-header"> -->
+                        <!-- <span class="card-tag">Language</span> -->
+                    <!-- </div> -->
+                    <!-- <div class="card-title">English Language</div> -->
+                    <!-- <div class="card-desc">Grammar rules, vocabulary lists, comprehension strategies, and writing structures.</div> -->
+                <!-- </div> -->
+                <!-- <div class="card-footer"> -->
+                    <!-- Open Notes &rarr; -->
+                <!-- </div> -->
+            <!-- </a> -->
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript to Automatically Fetch Tags & Run Filtering -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBar = document.getElementById('filterBar');
+            const topicCards = document.querySelectorAll('.topic-card');
+            const tagsSet = new Set();
+
+            // 1. Scan all cards and extract tag text dynamically
+            topicCards.forEach(card => {
+                const tagElement = card.querySelector('.card-tag');
+                if (tagElement) {
+                    const tagValue = tagElement.textContent.trim();
+                    tagsSet.add(tagValue);
+                }
+            });
+
+            // 2. Generate filter buttons automatically for each unique tag found
+            tagsSet.forEach(tag => {
+                const button = document.createElement('button');
+                button.classList.add('filter-btn');
+                button.setAttribute('data-filter', tag.toLowerCase());
+                button.textContent = tag;
+                filterBar.appendChild(button);
+            });
+
+            // 3. Add Click Listener to Filter Buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update Active Button styling
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const selectedFilter = button.getAttribute('data-filter');
+
+                    // Filter Card Items
+                    topicCards.forEach(card => {
+                        const cardTag = card.querySelector('.card-tag')?.textContent.trim().toLowerCase();
+
+                        if (selectedFilter === 'all' || cardTag === selectedFilter) {
+                            card.classList.remove('is-hidden');
+                        } else {
+                            card.classList.add('is-hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
