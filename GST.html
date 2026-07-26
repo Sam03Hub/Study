@@ -305,6 +305,12 @@
                 right: 0;
                 background-color: #ffffff;
             }
+			/* Hide the footer note during print since print layout is already set */
+			@media print {
+				.footer-note {
+					display: none !important;
+			}
+		}			
         }
     </style>
 </head>
