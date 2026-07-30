@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOCABULARY</title>
+    <style>
+        /* ==========================================
+           1. CORE MONOCHROME BASE & TYPOGRAPHY
+           ========================================== */
+        :root {
+            --ink-black: #000000;
+            --paper-white: #ffffff;
+            --grey-dark: #333333;
+            --grey-mid: #666666;
+            --grey-light: #e6e6e6;
+            --grey-bg: #f8f8f8;
+        }
+
+        html {
+            font-size: 16px; /* Base 1rem = 16px */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--ink-black);
+            background-color: var(--paper-white);
+            padding: 3rem 1.5rem;
+        }
+
+        .document-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           2. HEADINGS & SECTION SEPARATORS
+           ========================================== */
+        h1.doc-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 1.2px;
+            padding-bottom: 1rem;
+            border-bottom: 3px double var(--ink-black);
+            margin-bottom: 2.5rem;
+            line-height: 1.3;
+        }
+
+        h1.doc-title span {
+            font-size: 1.1rem;
+            font-weight: normal;
+            text-transform: none;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        h2.section-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.6rem 0.75rem;
+            margin-top: 2.75rem;
+            margin-bottom: 1.5rem;
+            border-top: 2px solid var(--ink-black);
+            border-bottom: 2px solid var(--ink-black);
+            background-color: var(--grey-bg);
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        h3.subsection-header {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--ink-black);
+            padding-bottom: 0.35rem;
+            line-height: 1.35;
+        }
+
+        h4.clause-header {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            text-decoration: underline;
+            line-height: 1.35;
+        }
+
+        p {
+            font-size: 0.9375rem; /* ~15px equivalent */
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.6;			
+        }
+
+        /* ==========================================
+           3. LISTS & INLINE TEXT STYLES
+           ========================================== */
+        ul, ol {
+            font-size: 0.9375rem;
+            margin-left: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* ==========================================
+           4. STRUCTURED TABLES & RESPONSIVE SLIDER
+           ========================================== */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0 2rem 0;
+            border: 0px solid var(--ink-black);
+        }
+
+        /* Custom Scrollbar for Mobile Smoothness */
+        .table-container::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: var(--grey-bg);
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: var(--grey-mid);
+            border-radius: 1px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px; /* Ensures table keeps structured layout and enables horizontal scroll on smaller screens */
+            border-collapse: collapse;
+            font-size: 0.875rem; /* ~14px */
+            line-height: 1.45;
+            border: none;
+        }
+
+        table, th, td {
+            border: 1px solid var(--ink-black);
+        }
+
+        th {
+            background-color: var(--grey-light);
+            color: var(--ink-black);
+            font-weight: bold;
+            text-align: left;
+            padding: 0.65rem 0.75rem;
+            text-transform: uppercase;
+            font-size: 0.8125rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 0.65rem 0.75rem;
+            vertical-align: top;
+            background-color: var(--paper-white);
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--grey-bg);
+        }
+
+        /* ==========================================
+           5. CALLOUT BOXES & DIAGRAM TREES
+           ========================================== */
+        .callout-box {
+            border: 1px solid var(--ink-black);
+            background-color: var(--paper-white);
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            page-break-inside: avoid;
+        }
+
+        .callout-box.exam-trap {
+            background-color: var(--grey-bg);
+        }
+
+        .callout-title {
+            font-weight: bold;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .callout-title::before {
+            content: "■ ";
+            margin-right: 0.4rem;
+        }
+
+        .callout-box p {
+            margin-bottom: 0;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        pre.diagram-tree {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.8125rem;
+            line-height: 1.35;
+            background-color: var(--grey-bg);
+            border: 1px solid var(--ink-black);
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            overflow-x: auto;
+            white-space: pre;
+            page-break-inside: avoid;
+        }
+
+        /* ==========================================
+           6. FOOTER & PAGE NUMBERING
+           ========================================== */
+        .doc-footer {
+            margin-top: 3.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--ink-black);
+            font-size: 0.8125rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            color: var(--grey-dark);
+        }
+
+        /* ==========================================
+           7. CSS MEDIA PRINT STYLES
+           ========================================== */
+        @media print {
+            html {
+                font-size: 12px; /* Standardize print base size */
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 18mm 15mm 18mm 15mm;
+                @bottom-right {
+                    content: "Page " counter(page) " of " counter(pages);
+                    font-family: Arial, sans-serif;
+                    font-size: 8pt;
+                }
+                @bottom-left {
+                    content: "GST Laws & Indirect Taxation — SammohanNotes";
+                    font-family: Arial, sans-serif;
+                    font-size: 8pt;
+                }
+            }
+
+            body {
+                padding: 0;
+                background-color: #ffffff;
+            }
+
+            .document-wrapper {
+                max-width: 100%;
+            }
+
+            .table-container {
+                overflow: visible;
+                border: none;
+            }
+
+            table {
+                min-width: 100%;
+                page-break-inside: avoid;
+            }
+
+            h2.section-header, h3.subsection-header {
+                page-break-after: avoid;
+            }
+
+            table, pre.diagram-tree, .callout-box {
+                page-break-inside: avoid;
+            }
+
+            .doc-footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+            }
+            @media print {
+                .footer-note {
+                    display: none !important;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-wrapper">
+
+    <!-- DOCUMENT TITLE -->
+    <h1 class="doc-title">EVERYDAY VOCABULARY (100)</h1>
+
+    <!-- VOCABULARY TABLE -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">No.</th>
+                    <th style="width: 22%;">Word</th>
+                    <th style="width: 45%;">Meaning</th>
+                    <th style="width: 25%;">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><strong>Amiable</strong></td>
+                    <td>Friendly and pleasant in manner</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Articulate</strong></td>
+                    <td>Expressing ideas clearly and fluently</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Astute</strong></td>
+                    <td>Clever and quick to notice or understand things</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Candid</strong></td>
+                    <td>Open, honest, and straightforward</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>Charismatic</strong></td>
+                    <td>Possessing a charming personality that inspires others</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><strong>Complacent</strong></td>
+                    <td>Self-satisfied to the point of being unaware of potential dangers</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><strong>Consensus</strong></td>
+                    <td>A general agreement among a group of people</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><strong>Diplomatic</strong></td>
+                    <td>Tactful and delicate in dealing with people</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><strong>Empathetic</strong></td>
+                    <td>Able to understand and share the feelings of others</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><strong>Exacting</strong></td>
+                    <td>Making great demands on skill, attention, or care</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><strong>Fastidious</strong></td>
+                    <td>Very attentive to accuracy, cleanliness, or detail</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><strong>Gullible</strong></td>
+                    <td>Easily fooled or cheated</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><strong>Inquisitive</strong></td>
+                    <td>Curious or inquiring; eager for knowledge</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><strong>Intrepid</strong></td>
+                    <td>Fearless and adventurous</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><strong>Meticulous</strong></td>
+                    <td>Extremely careful and precise in work or effort</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><strong>Oblivious</strong></td>
+                    <td>Unaware of or not noticing what is happening around oneself</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><strong>Obdurate</strong></td>
+                    <td>Stubbornly refusing to change one's opinion</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><strong>Pragmatic</strong></td>
+                    <td>Dealing with things sensibly and practically</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><strong>Resilient</strong></td>
+                    <td>Able to withstand or recover quickly from difficult conditions</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><strong>Shrewd</strong></td>
+                    <td>Having good judgment in practical or financial matters</td>
+                    <td>Describing Behaviour</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><strong>Affirm</strong></td>
+                    <td>State emphatically or publicly that something is true</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><strong>Ambiguous</strong></td>
+                    <td>Open to more than one interpretation; unclear</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><strong>Assert</strong></td>
+                    <td>State a fact or belief confidently and forcefully</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><strong>Coherent</strong></td>
+                    <td>Logical, well-organised, and easy to understand</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><strong>Concise</strong></td>
+                    <td>Giving a lot of information clearly and in few words</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td><strong>Convey</strong></td>
+                    <td>Communicate a message, thought, or feeling</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><strong>Debunk</strong></td>
+                    <td>Expose the falseness of a belief or idea</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><strong>Eloquent</strong></td>
+                    <td>Fluent or persuasive in speaking or writing</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td><strong>Emphasise</strong></td>
+                    <td>Give special importance or value to something</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td><strong>Explicit</strong></td>
+                    <td>Stated clearly and in detail, leaving no room for confusion</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td><strong>Implicit</strong></td>
+                    <td>Suggested though not directly expressed</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td><strong>Jargon</strong></td>
+                    <td>Special words or expressions used by a profession or group</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><strong>Laconic</strong></td>
+                    <td>Using very few words in speech or writing</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td><strong>Nuance</strong></td>
+                    <td>A subtle difference in shade of meaning, expression, or sound</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td><strong>Ponder</strong></td>
+                    <td>Think about something carefully before making a decision</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td><strong>Rhetoric</strong></td>
+                    <td>The art of effective or persuasive speaking or writing</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td><strong>Succinct</strong></td>
+                    <td>Briefly and clearly expressed</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td><strong>Tactful</strong></td>
+                    <td>Showing skill and sensitivity in dealing with others</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td><strong>Verbose</strong></td>
+                    <td>Using or containing more words than are needed</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td><strong>Vivid</strong></td>
+                    <td>Producing powerful or clear feelings and images in the mind</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td><strong>Abrupt</strong></td>
+                    <td>Sudden and unexpected</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td><strong>Adequate</strong></td>
+                    <td>Satisfactory or acceptable in quality or quantity</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td><strong>Apparent</strong></td>
+                    <td>Clearly visible or understood; obvious</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><strong>Arduous</strong></td>
+                    <td>Involving or requiring strenuous effort; difficult</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td><strong>Climax</strong></td>
+                    <td>The most intense, exciting, or important point of something</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td><strong>Coincidence</strong></td>
+                    <td>A remarkable concurrence of events without evident causal connection</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td><strong>Cumulative</strong></td>
+                    <td>Increasing in quantity by successive additions</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td><strong>Drastic</strong></td>
+                    <td>Likely to have a strong or far-reaching effect</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>49</td>
+                    <td><strong>Fiasco</strong></td>
+                    <td>A complete failure, especially a ludicrous or humiliating one</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td><strong>Hectic</strong></td>
+                    <td>Full of frantic activity, haste, or confusion</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td><strong>Imminent</strong></td>
+                    <td>About to happen very soon</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td><strong>Inevitable</strong></td>
+                    <td>Certain to happen; unavoidable</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td><strong>Intermittent</strong></td>
+                    <td>Occurring at irregular intervals; not continuous</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td><strong>Monotonous</strong></td>
+                    <td>Dull, tedious, and repetitious; lacking in variety</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td><strong>Plausible</strong></td>
+                    <td>Seeming reasonable or probable</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>56</td>
+                    <td><strong>Prevalent</strong></td>
+                    <td>Widespread in a particular area or at a particular time</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>57</td>
+                    <td><strong>Relentless</strong></td>
+                    <td>Unceasingly intense, harsh, or inflexible</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>58</td>
+                    <td><strong>Spontaneous</strong></td>
+                    <td>Done or said in a natural and sudden way without planning</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>59</td>
+                    <td><strong>Trivial</strong></td>
+                    <td>Of little value or importance</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td><strong>Unprecedented</strong></td>
+                    <td>Never done or known before</td>
+                    <td>Daily Situations</td>
+                </tr>
+                <tr>
+                    <td>61</td>
+                    <td><strong>Adopt</strong></td>
+                    <td>Choose to follow or take up an option or idea</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td><strong>Benchmark</strong></td>
+                    <td>A standard or point of reference against which things may be compared</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td><strong>Bolster</strong></td>
+                    <td>Support, strengthen, or encourage</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td><strong>Consolidate</strong></td>
+                    <td>Combine a number of things into a single more effective whole</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td><strong>Delegate</strong></td>
+                    <td>Entrust a task or responsibility to another person</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>66</td>
+                    <td><strong>Discrepancy</strong></td>
+                    <td>An illogical or surprising lack of compatibility between two facts</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td><strong>Efficient</strong></td>
+                    <td>Achieving maximum productivity with minimum wasted effort or expense</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td><strong>Evaluate</strong></td>
+                    <td>Form an idea of the amount, number, or value of something</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td><strong>Facilitate</strong></td>
+                    <td>Make an action or process easy or easier</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td><strong>Feasible</strong></td>
+                    <td>Possible to do easily or conveniently</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td><strong>Improvise</strong></td>
+                    <td>Create or perform something spontaneously without preparation</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td><strong>Incentive</strong></td>
+                    <td>A thing that motivates or encourages someone to do something</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td><strong>Innovate</strong></td>
+                    <td>Make changes in something established, especially by introducing new methods</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td><strong>Lucrative</strong></td>
+                    <td>Producing a great deal of profit</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td><strong>Mitigate</strong></td>
+                    <td>Make less severe, serious, or painful</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>76</td>
+                    <td><strong>Optimise</strong></td>
+                    <td>Make the best or most effective use of a situation or resource</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>77</td>
+                    <td><strong>Pivotal</strong></td>
+                    <td>Of crucial importance in relation to the development of something else</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>78</td>
+                    <td><strong>Proactive</strong></td>
+                    <td>Creating or controlling a situation rather than responding to it after it has happened</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>79</td>
+                    <td><strong>Redundant</strong></td>
+                    <td>Not or no longer needed or useful</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td><strong>Streamline</strong></td>
+                    <td>Make an organisation or system more efficient and simple</td>
+                    <td>Workplace & Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>81</td>
+                    <td><strong>Animosity</strong></td>
+                    <td>Strong hostility or hatred</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>82</td>
+                    <td><strong>Apprehensive</strong></td>
+                    <td>Anxious or fearful that something bad or unpleasant will happen</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>83</td>
+                    <td><strong>Apathy</strong></td>
+                    <td>Lack of interest, enthusiasm, or concern</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td><strong>Bewildered</strong></td>
+                    <td>Perplexed and confused; puzzled</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>85</td>
+                    <td><strong>Complacency</strong></td>
+                    <td>A feeling of calm satisfaction with your own abilities or situation</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>86</td>
+                    <td><strong>Despondent</strong></td>
+                    <td>In low spirits from loss of hope or courage</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>87</td>
+                    <td><strong>Ecstatic</strong></td>
+                    <td>Feeling or expressing overwhelming happiness or joyful excitement</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>88</td>
+                    <td><strong>Euphoria</strong></td>
+                    <td>A feeling or state of intense excitement and happiness</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>89</td>
+                    <td><strong>Frantic</strong></td>
+                    <td>Wild or distraught with fear, anxiety, or other emotion</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>90</td>
+                    <td><strong>Gratitude</strong></td>
+                    <td>The quality of being thankful</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>91</td>
+                    <td><strong>Indifferent</strong></td>
+                    <td>Having no particular interest or sympathy; unconcerned</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>92</td>
+                    <td><strong>Irritable</strong></td>
+                    <td>Having or showing a tendency to be easily annoyed or made angry</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>93</td>
+                    <td><strong>Melancholy</strong></td>
+                    <td>A feeling of pensive sadness, typically with no obvious cause</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>94</td>
+                    <td><strong>Nostalgia</strong></td>
+                    <td>A sentimental longing or wistful affection for the past</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>95</td>
+                    <td><strong>Overwhelmed</strong></td>
+                    <td>Defeated or completely overcome by an excess of thoughts/emotions</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>96</td>
+                    <td><strong>Serene</strong></td>
+                    <td>Calm, peaceful, and untroubled</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>97</td>
+                    <td><strong>Sceptical</strong></td>
+                    <td>Not easily convinced; having doubts or reservations</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>98</td>
+                    <td><strong>Solitude</strong></td>
+                    <td>The state or situation of being alone</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>99</td>
+                    <td><strong>Vulnerable</strong></td>
+                    <td>Susceptible to physical or emotional attack or harm</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td><strong>Whimsical</strong></td>
+                    <td>Playfully quaint or fanciful, especially in an appealing way</td>
+                    <td>Emotions & States of Being</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER NOTE -->
+    <div class="doc-footer">
+        <span>Everyday Vocabulary</span>
+        <span>@SammohanNotes</span>
+    </div>
+
+</div>
+
+</body>
+</html>

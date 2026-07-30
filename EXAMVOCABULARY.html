@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOCABULARY</title>
+    <style>
+        /* ==========================================
+           1. CORE MONOCHROME BASE & TYPOGRAPHY
+           ========================================== */
+        :root {
+            --ink-black: #000000;
+            --paper-white: #ffffff;
+            --grey-dark: #333333;
+            --grey-mid: #666666;
+            --grey-light: #e6e6e6;
+            --grey-bg: #f8f8f8;
+        }
+
+        html {
+            font-size: 16px; /* Base 1rem = 16px */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--ink-black);
+            background-color: var(--paper-white);
+            padding: 3rem 1.5rem;
+        }
+
+        .document-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           2. HEADINGS & SECTION SEPARATORS
+           ========================================== */
+        h1.doc-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 1.2px;
+            padding-bottom: 1rem;
+            border-bottom: 3px double var(--ink-black);
+            margin-bottom: 2.5rem;
+            line-height: 1.3;
+        }
+
+        h1.doc-title span {
+            font-size: 1.1rem;
+            font-weight: normal;
+            text-transform: none;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        h2.section-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.6rem 0.75rem;
+            margin-top: 2.75rem;
+            margin-bottom: 1.5rem;
+            border-top: 2px solid var(--ink-black);
+            border-bottom: 2px solid var(--ink-black);
+            background-color: var(--grey-bg);
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        h3.subsection-header {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--ink-black);
+            padding-bottom: 0.35rem;
+            line-height: 1.35;
+        }
+
+        h4.clause-header {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            text-decoration: underline;
+            line-height: 1.35;
+        }
+
+        p {
+            font-size: 0.9375rem; /* ~15px equivalent */
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.6;			
+        }
+
+        /* ==========================================
+           3. LISTS & INLINE TEXT STYLES
+           ========================================== */
+        ul, ol {
+            font-size: 0.9375rem;
+            margin-left: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* ==========================================
+           4. STRUCTURED TABLES & RESPONSIVE SLIDER
+           ========================================== */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0 2rem 0;
+            border: 0px solid var(--ink-black);
+        }
+
+        /* Custom Scrollbar for Mobile Smoothness */
+        .table-container::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: var(--grey-bg);
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: var(--grey-mid);
+            border-radius: 1px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px; /* Ensures table keeps structured layout and enables horizontal scroll on smaller screens */
+            border-collapse: collapse;
+            font-size: 0.875rem; /* ~14px */
+            line-height: 1.45;
+            border: none;
+        }
+
+        table, th, td {
+            border: 1px solid var(--ink-black);
+        }
+
+        th {
+            background-color: var(--grey-light);
+            color: var(--ink-black);
+            font-weight: bold;
+            text-align: left;
+            padding: 0.65rem 0.75rem;
+            text-transform: uppercase;
+            font-size: 0.8125rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 0.65rem 0.75rem;
+            vertical-align: top;
+            background-color: var(--paper-white);
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--grey-bg);
+        }
+
+        /* ==========================================
+           5. CALLOUT BOXES & DIAGRAM TREES
+           ========================================== */
+        .callout-box {
+            border: 1px solid var(--ink-black);
+            background-color: var(--paper-white);
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            page-break-inside: avoid;
+        }
+
+        .callout-box.exam-trap {
+            background-color: var(--grey-bg);
+        }
+
+        .callout-title {
+            font-weight: bold;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .callout-title::before {
+            content: "■ ";
+            margin-right: 0.4rem;
+        }
+
+        .callout-box p {
+            margin-bottom: 0;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        pre.diagram-tree {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.8125rem;
+            line-height: 1.35;
+            background-color: var(--grey-bg);
+            border: 1px solid var(--ink-black);
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            overflow-x: auto;
+            white-space: pre;
+            page-break-inside: avoid;
+        }
+
+        /* ==========================================
+           6. FOOTER & PAGE NUMBERING
+           ========================================== */
+        .doc-footer {
+            margin-top: 3.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--ink-black);
+            font-size: 0.8125rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            color: var(--grey-dark);
+        }
+
+        /* ==========================================
+           7. CSS MEDIA PRINT STYLES
+           ========================================== */
+        @media print {
+            html {
+                font-size: 12px; /* Standardize print base size */
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 18mm 15mm 18mm 15mm;
+                @bottom-right {
+                    content: "Page " counter(page) " of " counter(pages);
+                    font-family: Arial, sans-serif;
+                    font-size: 8pt;
+                }
+                @bottom-left {
+                    content: "GST Laws & Indirect Taxation — SammohanNotes";
+                    font-family: Arial, sans-serif;
+                    font-size: 8pt;
+                }
+            }
+
+            body {
+                padding: 0;
+                background-color: #ffffff;
+            }
+
+            .document-wrapper {
+                max-width: 100%;
+            }
+
+            .table-container {
+                overflow: visible;
+                border: none;
+            }
+
+            table {
+                min-width: 100%;
+                page-break-inside: avoid;
+            }
+
+            h2.section-header, h3.subsection-header {
+                page-break-after: avoid;
+            }
+
+            table, pre.diagram-tree, .callout-box {
+                page-break-inside: avoid;
+            }
+
+            .doc-footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+            }
+			/* Hide the footer note during print since print layout is already set */
+			@media print {
+				.footer-note {
+					display: none !important;
+			}
+		}
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-wrapper">
+
+    <!-- DOCUMENT TITLE -->
+    <h1 class="doc-title">EXAM VOCABULARY (100)</h1>
+
+    <!-- 1. VOCABULARY -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 5%;">No.</th>
+                    <th style="width: 18%;">Word</th>
+                    <th style="width: 37%;">Meaning</th>
+                    <th style="width: 20%;">Synonyms</th>
+                    <th style="width: 20%;">Antonyms</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><strong>Abate</strong></td>
+                    <td>To reduce in intensity, amount, or force</td>
+                    <td>Subside, diminish, lessen</td>
+                    <td>Intensify, increase</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Abdicate</strong></td>
+                    <td>To formally give up a position of power or duty</td>
+                    <td>Renounce, resign, relinquish</td>
+                    <td>Assume, claim</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Abhor</strong></td>
+                    <td>To regard with disgust and hatred</td>
+                    <td>Detest, loathe, despise</td>
+                    <td>Love, admire</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Abrogate</strong></td>
+                    <td>To repeal or officially annul a law or agreement</td>
+                    <td>Abolish, revoke, nullify</td>
+                    <td>Enact, establish</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>Abscond</strong></td>
+                    <td>To leave hurriedly and secretly to avoid arrest</td>
+                    <td>Flee, decamp, bolt</td>
+                    <td>Remain, stay</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><strong>Acquiesce</strong></td>
+                    <td>To accept something reluctantly but without protest</td>
+                    <td>Comply, assent, yield</td>
+                    <td>Forbid, protest</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><strong>Admonish</strong></td>
+                    <td>To warn or reprimand someone firmly</td>
+                    <td>Reprove, censure, chide</td>
+                    <td>Praise, applaud</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><strong>Alacrity</strong></td>
+                    <td>Brisk and cheerful readiness; enthusiasm</td>
+                    <td>Eagerness, promptness, willingness</td>
+                    <td>Apathy, reluctance</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><strong>Ambiguous</strong></td>
+                    <td>Open to more than one interpretation; unclear</td>
+                    <td>Equivocal, vague, obscure</td>
+                    <td>Clear, explicit</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><strong>Ameliorate</strong></td>
+                    <td>To make something bad or unsatisfactory better</td>
+                    <td>Improve, enhance, upgrade</td>
+                    <td>Worsen, aggravate</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><strong>Apathy</strong></td>
+                    <td>Lack of interest, enthusiasm, or concern</td>
+                    <td>Indifference, lethargy, unconcern</td>
+                    <td>Enthusiasm, passion</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><strong>Assiduous</strong></td>
+                    <td>Showing great care, attention, and effort</td>
+                    <td>Diligent, industrious, meticulous</td>
+                    <td>Lazy, negligent</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><strong>Audacious</strong></td>
+                    <td>Showing a willingness to take surprisingly bold risks</td>
+                    <td>Daring, brazen, fearless</td>
+                    <td>Timid, cautious</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><strong>Benevolent</strong></td>
+                    <td>Well-meaning, kindly, and generous</td>
+                    <td>Charitable, magnanimous, kindly</td>
+                    <td>Malevolent, unkind</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><strong>Bolster</strong></td>
+                    <td>To support, strengthen, or prop up</td>
+                    <td>Reinforce, fortify, sustain</td>
+                    <td>Undermine, weaken</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><strong>Brazen</strong></td>
+                    <td>Bold and shameless</td>
+                    <td>Audacious, brash, insolent</td>
+                    <td>Timid, modest</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><strong>Brevity</strong></td>
+                    <td>Concise and exact use of words in writing or speech</td>
+                    <td>Conciseness, terseness, succinctness</td>
+                    <td>Verbosity, wordiness</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><strong>Cajole</strong></td>
+                    <td>To persuade someone by sustained coaxing/flattery</td>
+                    <td>Coax, wheedle, sweet-talk</td>
+                    <td>Coerce, compel</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><strong>Callous</strong></td>
+                    <td>Showing or having an insensitive and cruel disregard</td>
+                    <td>Unfeeling, heartless, indifferent</td>
+                    <td>Compassionate, kind</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><strong>Candour</strong></td>
+                    <td>The quality of being open, honest, and straightforward</td>
+                    <td>Frankness, sincerity, honesty</td>
+                    <td>Deceit, insincerity</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><strong>Capitulate</strong></td>
+                    <td>To cease resisting an opponent; surrender</td>
+                    <td>Yield, concede, submit</td>
+                    <td>Resist, conquer</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><strong>Capricious</strong></td>
+                    <td>Given to sudden and unaccountable changes of mood</td>
+                    <td>Fickle, unpredictable, erratic</td>
+                    <td>Constant, predictable</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><strong>Caustic</strong></td>
+                    <td>Sarcastic, biting, or critical in a hurtful way</td>
+                    <td>Scathing, acerbic, mordant</td>
+                    <td>Kind, complimentary</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><strong>Censure</strong></td>
+                    <td>To express severe disapproval of someone or something</td>
+                    <td>Condemn, criticize, reprimand</td>
+                    <td>Praise, commend</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><strong>Clandestine</strong></td>
+                    <td>Kept secret or done secretively, especially if illicit</td>
+                    <td>Covert, surreptitious, stealthy</td>
+                    <td>Overt, public</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td><strong>Clemency</strong></td>
+                    <td>Mercy or leniency extended to an offender</td>
+                    <td>Compassion, forgiveness, leniency</td>
+                    <td>Harshness, severity</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><strong>Cogent</strong></td>
+                    <td>Clear, logical, and convincing (of an argument)</td>
+                    <td>Compelling, persuasive, sound</td>
+                    <td>Unconvincing, weak</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><strong>Concur</strong></td>
+                    <td>To be of the same opinion; agree</td>
+                    <td>Assent, acquiesce, accord</td>
+                    <td>Disagree, dissent</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td><strong>Conspicuous</strong></td>
+                    <td>Standing out so as to be clearly visible</td>
+                    <td>Noticeable, prominent, obvious</td>
+                    <td>Inconspicuous, hidden</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td><strong>Contrite</strong></td>
+                    <td>Feeling or expressing remorse or penitence</td>
+                    <td>Remorseful, apologetic, repentant</td>
+                    <td>Unrepentant, defiant</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td><strong>Copious</strong></td>
+                    <td>Abundant in supply or quantity</td>
+                    <td>Plentiful, ample, profuse</td>
+                    <td>Scarce, meagre</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td><strong>Cursory</strong></td>
+                    <td>Hasty and therefore not thorough or detailed</td>
+                    <td>Perfunctory, superficial, brief</td>
+                    <td>Thorough, detailed</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><strong>Debacle</strong></td>
+                    <td>A sudden and ignominious failure; a fiasco</td>
+                    <td>Disaster, catastrophe, collapse</td>
+                    <td>Success, triumph</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td><strong>Debilitate</strong></td>
+                    <td>To make someone or something weak and infirm</td>
+                    <td>Enfeeble, weaken, impair</td>
+                    <td>Strengthen, invigorate</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td><strong>Decorum</strong></td>
+                    <td>Behaviour in keeping with good taste and propriety</td>
+                    <td>Etiquette, appropriateness, dignity</td>
+                    <td>Impropriety, rudeness</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td><strong>Deference</strong></td>
+                    <td>Polite submission and respect</td>
+                    <td>Esteem, regard, reverence</td>
+                    <td>Disrespect, defiance</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td><strong>Delineate</strong></td>
+                    <td>To describe or portray something precisely</td>
+                    <td>Outline, depict, define</td>
+                    <td>Distort, confuse</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td><strong>Deride</strong></td>
+                    <td>To express contempt for; ridicule or mock</td>
+                    <td>Mock, taunt, scoff at</td>
+                    <td>Praise, respect</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td><strong>Despondent</strong></td>
+                    <td>In low spirits from loss of hope or courage</td>
+                    <td>Dejected, disheartened, gloomy</td>
+                    <td>Cheerful, hopeful</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td><strong>Diligent</strong></td>
+                    <td>Having or showing care and conscientiousness in work</td>
+                    <td>Hardworking, assiduous, painstaking</td>
+                    <td>Lazy, careless</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td><strong>Disparate</strong></td>
+                    <td>Essentially different in kind; not allowing comparison</td>
+                    <td>Diverse, distinct, dissimilar</td>
+                    <td>Similar, identical</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td><strong>Dogmatic</strong></td>
+                    <td>Inclined to lay down principles as absolute truth</td>
+                    <td>Opinionated, rigid, assertive</td>
+                    <td>Open-minded, flexible</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td><strong>Ebullient</strong></td>
+                    <td>Cheerful and full of energy</td>
+                    <td>Exuberant, buoyant, enthusiastic</td>
+                    <td>Depressed, sombre</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><strong>Egalitarian</strong></td>
+                    <td>Believing in the principle that all people are equal</td>
+                    <td>Democratic, equalitarian</td>
+                    <td>Elitist, biased</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td><strong>Elucidate</strong></td>
+                    <td>To make something clear; explain</td>
+                    <td>Clarify, illuminate, expound</td>
+                    <td>Obscure, confuse</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td><strong>Enigma</strong></td>
+                    <td>A person or thing that is mysterious or difficult</td>
+                    <td>Puzzle, mystery, conundrum</td>
+                    <td>Explanation, clarity</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td><strong>Ephemeral</strong></td>
+                    <td>Lasting for a very short time</td>
+                    <td>Transient, fleeting, short-lived</td>
+                    <td>Permanent, eternal</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td><strong>Equanimity</strong></td>
+                    <td>Mental calmness, composure, and evenness of temper</td>
+                    <td>Serenity, poise, equilibrium</td>
+                    <td>Agitation, anxiety</td>
+                </tr>
+                <tr>
+                    <td>49</td>
+                    <td><strong>Erudite</strong></td>
+                    <td>Having or showing great knowledge or learning</td>
+                    <td>Scholarly, learned, knowledgeable</td>
+                    <td>Ignorant, uneducated</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td><strong>Exemplary</strong></td>
+                    <td>Serving as a desirable model; outstanding</td>
+                    <td>Commendable, praiseworthy, ideal</td>
+                    <td>Unworthy, blameworthy</td>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td><strong>Exonerate</strong></td>
+                    <td>To absolve someone from blame or fault</td>
+                    <td>Vindicated, acquit, clear</td>
+                    <td>Inculpate, accuse</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td><strong>Facilitate</strong></td>
+                    <td>To make an action or process easy or easier</td>
+                    <td>Assist, expedite, smooth</td>
+                    <td>Hinder, impede</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td><strong>Fastidious</strong></td>
+                    <td>Very attentive to accuracy and detail</td>
+                    <td>Meticulous, fussy, painstaking</td>
+                    <td>Careless, sloppy</td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td><strong>Formidable</strong></td>
+                    <td>Inspiring fear/respect through size or power</td>
+                    <td>Intimidating, daunting, fierce</td>
+                    <td>Weak, harmless</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td><strong>Frugal</strong></td>
+                    <td>Sparing or economical with regard to money/food</td>
+                    <td>Thrifty, economical, prudent</td>
+                    <td>Extravagant, wasteful</td>
+                </tr>
+                <tr>
+                    <td>56</td>
+                    <td><strong>Garrulous</strong></td>
+                    <td>Excessively talkative, especially on trivial matters</td>
+                    <td>Talkative, loquacious, verbose</td>
+                    <td>Taciturn, silent</td>
+                </tr>
+                <tr>
+                    <td>57</td>
+                    <td><strong>Gregarious</strong></td>
+                    <td>Fond of company; sociable</td>
+                    <td>Outgoing, companionable, social</td>
+                    <td>Solitary, introverted</td>
+                </tr>
+                <tr>
+                    <td>58</td>
+                    <td><strong>Hackneyed</strong></td>
+                    <td>Lacking significance through having been overused</td>
+                    <td>Trite, cliché, platitudinous</td>
+                    <td>Original, fresh</td>
+                </tr>
+                <tr>
+                    <td>59</td>
+                    <td><strong>Harbinger</strong></td>
+                    <td>A person or thing that signals the approach of another</td>
+                    <td>Forerunner, herald, precursor</td>
+                    <td>Follower</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td><strong>Haughty</strong></td>
+                    <td>Arrogantly superior and disdainful</td>
+                    <td>Conceited, arrogant, pompous</td>
+                    <td>Humble, modest</td>
+                </tr>
+                <tr>
+                    <td>61</td>
+                    <td><strong>Impetuous</strong></td>
+                    <td>Acting or done quickly and without thought or care</td>
+                    <td>Rash, hasty, impulsive</td>
+                    <td>Cautious, deliberate</td>
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td><strong>Incorrigible</strong></td>
+                    <td>Not able to be corrected, improved, or reformed</td>
+                    <td>Unreformable, incurable, stubborn</td>
+                    <td>Reformable, obedient</td>
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td><strong>Innocuous</strong></td>
+                    <td>Not harmful or offensive</td>
+                    <td>Harmless, inoffensive, safe</td>
+                    <td>Harmful, toxic</td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td><strong>Insidious</strong></td>
+                    <td>Proceeding in a subtle way, but with harmful effects</td>
+                    <td>Treacherous, stealthy, deceitful</td>
+                    <td>Direct, straightforward</td>
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td><strong>Judicious</strong></td>
+                    <td>Having, showing, or done with good judgment</td>
+                    <td>Wise, prudent, sensible</td>
+                    <td>Foolish, imprudent</td>
+                </tr>
+                <tr>
+                    <td>66</td>
+                    <td><strong>Laconic</strong></td>
+                    <td>Using very few words</td>
+                    <td>Concise, brief, succinct</td>
+                    <td>Verbose, wordy</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td><strong>Lucid</strong></td>
+                    <td>Expressed clearly; easy to understand</td>
+                    <td>Clear, coherent, intelligible</td>
+                    <td>Confusing, unclear</td>
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td><strong>Magnanimous</strong></td>
+                    <td>Very generous or forgiving, especially to a rival</td>
+                    <td>Noble, benevolent, big-hearted</td>
+                    <td>Selfish, petty</td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td><strong>Meticulous</strong></td>
+                    <td>Showing great attention to detail; very careful</td>
+                    <td>Fastidious, thorough, painstaking</td>
+                    <td>Careless, sloppy</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td><strong>Mitigate</strong></td>
+                    <td>To make less severe, serious, or painful</td>
+                    <td>Alleviate, reduce, lessen</td>
+                    <td>Aggravate, intensify</td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td><strong>Mundane</strong></td>
+                    <td>Lacking interest or excitement; dull or ordinary</td>
+                    <td>Humdrum, routine, commonplace</td>
+                    <td>Extraordinary, exciting</td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td><strong>Nonchalant</strong></td>
+                    <td>Feeling or appearing casually calm and relaxed</td>
+                    <td>Unconcerned, indifferent, composed</td>
+                    <td>Anxious, concerned</td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td><strong>Obsolete</strong></td>
+                    <td>No longer produced or used; out of date</td>
+                    <td>Outdated, archaic, superseded</td>
+                    <td>Modern, current</td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td><strong>Onerous</strong></td>
+                    <td>Involving effort that is oppressively burdensome</td>
+                    <td>Arduous, demanding, gruelling</td>
+                    <td>Easy, effortless</td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td><strong>Ostentatious</strong></td>
+                    <td>Characterized by vulgar or pretentious display</td>
+                    <td>Showy, flamboyant, gaudy</td>
+                    <td>Modest, plain</td>
+                </tr>
+                <tr>
+                    <td>76</td>
+                    <td><strong>Panacea</strong></td>
+                    <td>A solution or remedy for all difficulties/diseases</td>
+                    <td>Cure-all, universal remedy</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>77</td>
+                    <td><strong>Parochial</strong></td>
+                    <td>Having a limited or narrow outlook or scope</td>
+                    <td>Narrow-minded, provincial, insular</td>
+                    <td>Broad-minded, global</td>
+                </tr>
+                <tr>
+                    <td>78</td>
+                    <td><strong>Plausible</strong></td>
+                    <td>Seeming reasonable or probable</td>
+                    <td>Credible, believable, feasible</td>
+                    <td>Implausible, unlikely</td>
+                </tr>
+                <tr>
+                    <td>79</td>
+                    <td><strong>Pragmatic</strong></td>
+                    <td>Dealing with things sensibly and realistically</td>
+                    <td>Practical, logical, sensible</td>
+                    <td>Impractical, idealistic</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td><strong>Precarious</strong></td>
+                    <td>Dangerously likely to fall, collapse, or fail</td>
+                    <td>Risky, uncertain, perilous</td>
+                    <td>Safe, secure</td>
+                </tr>
+                <tr>
+                    <td>81</td>
+                    <td><strong>Propitiate</strong></td>
+                    <td>To win or regain the favour of a god or person</td>
+                    <td>Appease, placate, mollify</td>
+                    <td>Provoke, anger</td>
+                </tr>
+                <tr>
+                    <td>82</td>
+                    <td><strong>Prudent</strong></td>
+                    <td>Acting with or showing care and thought for the future</td>
+                    <td>Cautious, wise, judicious</td>
+                    <td>Imprudent, reckless</td>
+                </tr>
+                <tr>
+                    <td>83</td>
+                    <td><strong>Quintessential</strong></td>
+                    <td>Representing the most perfect or typical example</td>
+                    <td>Archetypal, classic, ideal</td>
+                    <td>Atypical</td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td><strong>Recalcitrant</strong></td>
+                    <td>Having an obstinately uncooperative attitude</td>
+                    <td>Defiant, uncooperative, rebellious</td>
+                    <td>Compliant, obedient</td>
+                </tr>
+                <tr>
+                    <td>85</td>
+                    <td><strong>Redundant</strong></td>
+                    <td>Not or no longer needed or useful; superfluous</td>
+                    <td>Excessive, unnecessary, spare</td>
+                    <td>Essential, necessary</td>
+                </tr>
+                <tr>
+                    <td>86</td>
+                    <td><strong>Resilient</strong></td>
+                    <td>Able to withstand or recover quickly from difficulties</td>
+                    <td>Tough, adaptable, hardy</td>
+                    <td>Fragile, vulnerable</td>
+                </tr>
+                <tr>
+                    <td>87</td>
+                    <td><strong>Reticent</strong></td>
+                    <td>Not revealing one's thoughts or feelings readily</td>
+                    <td>Reserved, withdrawn, tight-lipped</td>
+                    <td>Communicative, open</td>
+                </tr>
+                <tr>
+                    <td>88</td>
+                    <td><strong>Sagacious</strong></td>
+                    <td>Having or showing keen mental discernment/judgment</td>
+                    <td>Wise, shrewd, insightful</td>
+                    <td>Foolish, unwise</td>
+                </tr>
+                <tr>
+                    <td>89</td>
+                    <td><strong>Salient</strong></td>
+                    <td>Most noticeable or important</td>
+                    <td>Prominent, conspicuous, key</td>
+                    <td>Inconspicuous, minor</td>
+                </tr>
+                <tr>
+                    <td>90</td>
+                    <td><strong>Sanguine</strong></td>
+                    <td>Optimistic or positive, especially in a bad situation</td>
+                    <td>Hopeful, confident, upbeat</td>
+                    <td>Pessimistic, gloomy</td>
+                </tr>
+                <tr>
+                    <td>91</td>
+                    <td><strong>Serendipity</strong></td>
+                    <td>The occurrence of events by chance in a happy way</td>
+                    <td>Chance, luck, fluke</td>
+                    <td>Misfortune, design</td>
+                </tr>
+                <tr>
+                    <td>92</td>
+                    <td><strong>Spurious</strong></td>
+                    <td>Not being what it purports to be; false or fake</td>
+                    <td>Bogus, counterfeit, fraudulent</td>
+                    <td>Genuine, authentic</td>
+                </tr>
+                <tr>
+                    <td>93</td>
+                    <td><strong>Superfluous</strong></td>
+                    <td>Unnecessary, especially through being more than enough</td>
+                    <td>Redundant, excess, surplus</td>
+                    <td>Necessary, essential</td>
+                </tr>
+                <tr>
+                    <td>94</td>
+                    <td><strong>Taciturn</strong></td>
+                    <td>Reserved or uncommunicative in speech; saying little</td>
+                    <td>Quiet, reticent, untalkative</td>
+                    <td>Garrulous, talkative</td>
+                </tr>
+                <tr>
+                    <td>95</td>
+                    <td><strong>Tenuous</strong></td>
+                    <td>Very weak or slight</td>
+                    <td>Flimsy, fragile, shaky</td>
+                    <td>Strong, solid</td>
+                </tr>
+                <tr>
+                    <td>96</td>
+                    <td><strong>Ubiquitous</strong></td>
+                    <td>Present, appearing, or found everywhere</td>
+                    <td>Omnipresent, pervasive, universal</td>
+                    <td>Rare, scarce</td>
+                </tr>
+                <tr>
+                    <td>97</td>
+                    <td><strong>Vindicate</strong></td>
+                    <td>To clear someone of blame or suspicion</td>
+                    <td>Exonerate, acquit, justify</td>
+                    <td>Condemn, convict</td>
+                </tr>
+                <tr>
+                    <td>98</td>
+                    <td><strong>Volatile</strong></td>
+                    <td>Liable to change rapidly and unpredictably</td>
+                    <td>Unstable, unpredictable, erratic</td>
+                    <td>Stable, calm</td>
+                </tr>
+                <tr>
+                    <td>99</td>
+                    <td><strong>Zeal</strong></td>
+                    <td>Great energy or enthusiasm in pursuit of a cause</td>
+                    <td>Passion, fervour, eagerness</td>
+                    <td>Apathy, indifference</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td><strong>Zenith</strong></td>
+                    <td>The time at which something is most powerful/peak</td>
+                    <td>Pinnacle, apex, climax</td>
+                    <td>Nadir, bottom</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER NOTE -->
+    <div class="doc-footer">
+        <span>Exam Vocabulary</span>
+        <span>@SammohanNotes</span>
+    </div>
+
+</div>
+
+</body>
+</html>

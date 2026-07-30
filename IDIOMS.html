@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDIOMS</title>
+    <style>
+        /* ==========================================
+           1. CORE MONOCHROME BASE & TYPOGRAPHY
+           ========================================== */
+        :root {
+            --ink-black: #000000;
+            --paper-white: #ffffff;
+            --grey-dark: #333333;
+            --grey-mid: #666666;
+            --grey-light: #e6e6e6;
+            --grey-bg: #f8f8f8;
+        }
+
+        html {
+            font-size: 16px; /* Base 1rem = 16px */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--ink-black);
+            background-color: var(--paper-white);
+            padding: 3rem 1.5rem;
+        }
+
+        .document-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================
+           2. HEADINGS & SECTION SEPARATORS
+           ========================================== */
+        h1.doc-title {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 1.2px;
+            padding-bottom: 1rem;
+            border-bottom: 3px double var(--ink-black);
+            margin-bottom: 2.5rem;
+            line-height: 1.3;
+        }
+
+        h1.doc-title span {
+            font-size: 1.1rem;
+            font-weight: normal;
+            text-transform: none;
+            display: block;
+            margin-top: 0.5rem;
+        }
+
+        h2.section-header {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0.6rem 0.75rem;
+            margin-top: 2.75rem;
+            margin-bottom: 1.5rem;
+            border-top: 2px solid var(--ink-black);
+            border-bottom: 2px solid var(--ink-black);
+            background-color: var(--grey-bg);
+            text-align: left;
+            line-height: 1.3;
+        }
+
+        h3.subsection-header {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--ink-black);
+            padding-bottom: 0.35rem;
+            line-height: 1.35;
+        }
+
+        h4.clause-header {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            text-decoration: underline;
+            line-height: 1.35;
+        }
+
+        p {
+            font-size: 0.9375rem; /* ~15px equivalent */
+            margin-bottom: 1rem;
+            text-align: justify;
+            line-height: 1.6;			
+        }
+
+        /* ==========================================
+           3. LISTS & INLINE TEXT STYLES
+           ========================================== */
+        ul, ol {
+            font-size: 0.9375rem;
+            margin-left: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+            line-height: 1.5;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        /* ==========================================
+           4. STRUCTURED TABLES & RESPONSIVE SLIDER
+           ========================================== */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 1.5rem 0 2rem 0;
+            border: 0px solid var(--ink-black);
+        }
+
+        /* Custom Scrollbar for Mobile Smoothness */
+        .table-container::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: var(--grey-bg);
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: var(--grey-mid);
+            border-radius: 1px;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px; /* Ensures table keeps structured layout and enables horizontal scroll on smaller screens */
+            border-collapse: collapse;
+            font-size: 0.875rem; /* ~14px */
+            line-height: 1.45;
+            border: none;
+        }
+
+        table, th, td {
+            border: 1px solid var(--ink-black);
+        }
+
+        th {
+            background-color: var(--grey-light);
+            color: var(--ink-black);
+            font-weight: bold;
+            text-align: left;
+            padding: 0.65rem 0.75rem;
+            text-transform: uppercase;
+            font-size: 0.8125rem;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 0.65rem 0.75rem;
+            vertical-align: top;
+            background-color: var(--paper-white);
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--grey-bg);
+        }
+
+        /* ==========================================
+           5. CALLOUT BOXES & DIAGRAM TREES
+           ========================================== */
+        .callout-box {
+            border: 1px solid var(--ink-black);
+            background-color: var(--paper-white);
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 0;
+            page-break-inside: avoid;
+        }
+
+        .callout-box.exam-trap {
+            background-color: var(--grey-bg);
+        }
+
+        .callout-title {
+            font-weight: bold;
+            font-size: 0.9375rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .callout-title::before {
+            content: "■ ";
+            margin-right: 0.4rem;
+        }
+
+        .callout-box p {
+            margin-bottom: 0;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        pre.diagram-tree {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.8125rem;
+            line-height: 1.35;
+            background-color: var(--grey-bg);
+            border: 1px solid var(--ink-black);
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            overflow-x: auto;
+            white-space: pre;
+            page-break-inside: avoid;
+        }
+
+        /* ==========================================
+           6. FOOTER & PAGE NUMBERING
+           ========================================== */
+        .doc-footer {
+            margin-top: 3.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--ink-black);
+            font-size: 0.8125rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            color: var(--grey-dark);
+        }
+
+        /* ==========================================
+           7. CSS MEDIA PRINT STYLES
+           ========================================== */
+        @media print {
+            html {
+                font-size: 12px; /* Standardize print base size */
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 18mm 15mm 18mm 15mm;
+                @bottom-right {
+                    content: "Page " counter(page) " of " counter(pages);
+                    font-family: Arial, sans-serif;
+                    font-size: 8pt;
+                }
+                @bottom-left {
+                    content: "GST Laws & Indirect Taxation — SammohanNotes";
+                    font-family: Arial, sans-serif;
+                    font-size: 8pt;
+                }
+            }
+
+            body {
+                padding: 0;
+                background-color: #ffffff;
+            }
+
+            .document-wrapper {
+                max-width: 100%;
+            }
+
+            .table-container {
+                overflow: visible;
+                border: none;
+            }
+
+            table {
+                min-width: 100%;
+                page-break-inside: avoid;
+            }
+
+            h2.section-header, h3.subsection-header {
+                page-break-after: avoid;
+            }
+
+            table, pre.diagram-tree, .callout-box {
+                page-break-inside: avoid;
+            }
+
+            .doc-footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+            }
+            @media print {
+                .footer-note {
+                    display: none !important;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="document-wrapper">
+
+    <!-- DOCUMENT TITLE -->
+    <h1 class="doc-title">TOP 100 ENGLISH IDIOMS</h1>
+
+    <!-- IDIOMS TABLE -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 8%;">No.</th>
+                    <th style="width: 28%;">Idiom</th>
+                    <th style="width: 42%;">Meaning</th>
+                    <th style="width: 22%;">Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><strong>A blessing in disguise</strong></td>
+                    <td>A good thing that seemed bad at first</td>
+                    <td>Life & Circumstance</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>A dime a dozen</strong></td>
+                    <td>Very common and of little value</td>
+                    <td>Value & Commonness</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Beat around the bush</strong></td>
+                    <td>Avoid saying what you mean, usually because it is uncomfortable</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Bite the bullet</strong></td>
+                    <td>To get something over with because it is inevitable</td>
+                    <td>Decision & Courage</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>Break a leg</strong></td>
+                    <td>Good luck (wished to performers before a show)</td>
+                    <td>Social & Encouragement</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><strong>Call it a day</strong></td>
+                    <td>Stop working on something</td>
+                    <td>Workplace & Effort</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><strong>Cut someone some slack</strong></td>
+                    <td>Don't be so critical of someone</td>
+                    <td>Social & Relationships</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><strong>Cutting corners</strong></td>
+                    <td>Doing something poorly in order to save time or money</td>
+                    <td>Workplace & Effort</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><strong>Get out of hand</strong></td>
+                    <td>Get out of control</td>
+                    <td>Control & Behaviour</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><strong>Give the benefit of the doubt</strong></td>
+                    <td>Believe someone's statement, without proof</td>
+                    <td>Trust & Judgement</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><strong>Go back to the drawing board</strong></td>
+                    <td>Start over after an initial plan fails</td>
+                    <td>Workplace & Effort</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><strong>Hit the sack</strong></td>
+                    <td>Go to sleep</td>
+                    <td>Daily Life</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><strong>It's not rocket science</strong></td>
+                    <td>It's not complicated to understand</td>
+                    <td>Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><strong>Let someone off the hook</strong></td>
+                    <td>To not hold someone responsible for something</td>
+                    <td>Social & Forgiveness</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><strong>Make a long story short</strong></td>
+                    <td>Tell something briefly without unnecessary details</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><strong>Miss the boat</strong></td>
+                    <td>It is too late to take advantage of an opportunity</td>
+                    <td>Opportunity & Time</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><strong>No pain, no gain</strong></td>
+                    <td>You have to work hard for what you want</td>
+                    <td>Effort & Achievement</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><strong>On the ball</strong></td>
+                    <td>Doing a good job; alert and efficient</td>
+                    <td>Workplace & Skill</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><strong>Pull someone's leg</strong></td>
+                    <td>To joke or tease someone</td>
+                    <td>Humour & Social</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><strong>Pull yourself together</strong></td>
+                    <td>Calm down and behave normally</td>
+                    <td>Emotions & Control</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><strong>So far so good</strong></td>
+                    <td>Things are going well up to this point</td>
+                    <td>Progress & State</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><strong>Speak of the devil</strong></td>
+                    <td>The person we were just talking about showed up</td>
+                    <td>Social & Coincidence</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><strong>That's the last straw</strong></td>
+                    <td>My patience has run out after a series of problems</td>
+                    <td>Patience & Limits</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><strong>Time flies when you're having fun</strong></td>
+                    <td>You don't notice how much time passes when you enjoy yourself</td>
+                    <td>Time & Perception</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><strong>Under the weather</strong></td>
+                    <td>Feeling slightly unwell or sick</td>
+                    <td>Health & Wellbeing</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td><strong>We'll cross that bridge when we come to it</strong></td>
+                    <td>Let's not worry about that problem right now</td>
+                    <td>Problem Solving</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><strong>Wrap your head around something</strong></td>
+                    <td>Understand something complex or strange</td>
+                    <td>Understanding</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><strong>Your guess is as good as mine</strong></td>
+                    <td>I have no idea whatsoever</td>
+                    <td>Knowledge & Truth</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td><strong>A bird in the hand is worth two in the bush</strong></td>
+                    <td>What you have is worth more than what you might get</td>
+                    <td>Value & Caution</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td><strong>A penny saved is a penny earned</strong></td>
+                    <td>Money saved now is as good as money earned later</td>
+                    <td>Finance & Savings</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td><strong>A picture is worth a thousand words</strong></td>
+                    <td>A visual image can convey complex meanings better than words</td>
+                    <td>Communication</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td><strong>Actions speak louder than words</strong></td>
+                    <td>People's intentions are judged by what they do, not what they say</td>
+                    <td>Behaviour & Character</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><strong>Add insult to injury</strong></td>
+                    <td>To make a bad situation even worse</td>
+                    <td>Conflict & Situations</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td><strong>Barking up the wrong tree</strong></td>
+                    <td>Pursuing a mistaken line of thought or course of action</td>
+                    <td>Error & Judgement</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td><strong>Bite off more than you can chew</strong></td>
+                    <td>Take on a task that is too big to handle</td>
+                    <td>Workplace & Capacity</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td><strong>Break the ice</strong></td>
+                    <td>Make people feel more comfortable in a social setting</td>
+                    <td>Social Interactions</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td><strong>By the skin of your teeth</strong></td>
+                    <td>Just barely managing to do or escape something</td>
+                    <td>Luck & Survival</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td><strong>Comparing apples to oranges</strong></td>
+                    <td>Comparing two things that are completely different</td>
+                    <td>Comparison & Logic</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td><strong>Costs an arm and a leg</strong></td>
+                    <td>Extremely expensive</td>
+                    <td>Finance & Value</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td><strong>Do something at the drop of a hat</strong></td>
+                    <td>Do something instantly without any hesitation</td>
+                    <td>Action & Readiness</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td><strong>Don't count your chickens before they hatch</strong></td>
+                    <td>Don't rely on something good happening before it actually occurs</td>
+                    <td>Expectations & Caution</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td><strong>Don't cry over spilt milk</strong></td>
+                    <td>There's no point in worrying about past mistakes that can't be changed</td>
+                    <td>Regret & Mindset</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td><strong>Don't put all your eggs in one basket</strong></td>
+                    <td>Don't risk everything on a single venture</td>
+                    <td>Risk & Strategy</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><strong>Every cloud has a silver lining</strong></td>
+                    <td>Good things come after difficult times</td>
+                    <td>Optimism & Hope</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td><strong>Get a taste of your own medicine</strong></td>
+                    <td>Get treated the same bad way you treated others</td>
+                    <td>Justice & Karma</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td><strong>Give someone the cold shoulder</strong></td>
+                    <td>To intentionally ignore someone</td>
+                    <td>Social & Conflict</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td><strong>Go on a wild goose chase</strong></td>
+                    <td>To pursue something that is impossible to find or achieve</td>
+                    <td>Futility & Effort</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td><strong>Good things come to those who wait</strong></td>
+                    <td>Be patient</td>
+                    <td>Patience & Reward</td>
+                </tr>
+                <tr>
+                    <td>49</td>
+                    <td><strong>Hit the nail on the head</strong></td>
+                    <td>Describe exactly what is causing a situation or problem</td>
+                    <td>Accuracy & Truth</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td><strong>Ignorance is bliss</strong></td>
+                    <td>You are better off not knowing certain unpleasant facts</td>
+                    <td>Knowledge & Peace</td>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td><strong>It takes two to tango</strong></td>
+                    <td>Both people involved in a difficult situation are responsible for it</td>
+                    <td>Responsibility & Conflict</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td><strong>Jump on the bandwagon</strong></td>
+                    <td>Join a popular trend or activity</td>
+                    <td>Trends & Conformity</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td><strong>Keep something at bay</strong></td>
+                    <td>Keep something dangerous or unpleasant away</td>
+                    <td>Prevention & Safety</td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td><strong>Kill two birds with one stone</strong></td>
+                    <td>Solve two problems with one single action</td>
+                    <td>Efficiency & Strategy</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td><strong>Let the cat out of the bag</strong></td>
+                    <td>Reveal a secret by mistake</td>
+                    <td>Secrets & Communication</td>
+                </tr>
+                <tr>
+                    <td>56</td>
+                    <td><strong>Live and learn</strong></td>
+                    <td>Make a mistake and learn a lesson from it</td>
+                    <td>Experience & Wisdom</td>
+                </tr>
+                <tr>
+                    <td>57</td>
+                    <td><strong>Look before you leap</strong></td>
+                    <td>Take calculated risks rather than rushing in blindly</td>
+                    <td>Caution & Planning</td>
+                </tr>
+                <tr>
+                    <td>58</td>
+                    <td><strong>On thin ice</strong></td>
+                    <td>In a risky or precarious position</td>
+                    <td>Risk & Danger</td>
+                </tr>
+                <tr>
+                    <td>59</td>
+                    <td><strong>Once in a blue moon</strong></td>
+                    <td>An event that happens very rarely</td>
+                    <td>Frequency & Time</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td><strong>Play devil's advocate</strong></td>
+                    <td>Argue the opposite side just for the sake of argument</td>
+                    <td>Debate & Discussion</td>
+                </tr>
+                <tr>
+                    <td>61</td>
+                    <td><strong>Rain on someone's parade</strong></td>
+                    <td>To spoil someone's pleasure or plans</td>
+                    <td>Interference & Mood</td>
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td><strong>Saving for a rainy day</strong></td>
+                    <td>Putting money aside for future emergencies</td>
+                    <td>Finance & Security</td>
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td><strong>Slow and steady wins the race</strong></td>
+                    <td>Consistent effort leads to ultimate success</td>
+                    <td>Persistence</td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td><strong>Spill the beans</strong></td>
+                    <td>Reveal secret information intentionally or unintentionally</td>
+                    <td>Secrets & Information</td>
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td><strong>Take it with a grain of salt</strong></td>
+                    <td>Don't take what someone says too seriously or literally</td>
+                    <td>Scepticism & Belief</td>
+                </tr>
+                <tr>
+                    <td>66</td>
+                    <td><strong>The ball is in your court</strong></td>
+                    <td>It is your decision or responsibility to make the next move</td>
+                    <td>Responsibility</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td><strong>The best of both worlds</strong></td>
+                    <td>An ideal situation where one enjoys two different advantages</td>
+                    <td>Advantage & Fortune</td>
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td><strong>The elephant in the room</strong></td>
+                    <td>An obvious problem or sensitive issue that people avoid discussing</td>
+                    <td>Communication & Awkwardness</td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td><strong>There's no such thing as a free lunch</strong></td>
+                    <td>Nothing is truly free; everything comes with a cost</td>
+                    <td>Reality & Finance</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td><strong>Through thick and thin</strong></td>
+                    <td>Under all circumstances, no matter how difficult</td>
+                    <td>Loyalty & Support</td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td><strong>Throw in the towel</strong></td>
+                    <td>Give up or admit defeat</td>
+                    <td>Defeat & Surrender</td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td><strong>Time is money</strong></td>
+                    <td>Time is a valuable resource and shouldn't be wasted</td>
+                    <td>Value & Time</td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td><strong>Twisting someone's arm</strong></td>
+                    <td>Persuading someone to do something they were reluctant to do</td>
+                    <td>Persuasion</td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td><strong>Under the table</strong></td>
+                    <td>Secretly or illegally, usually involving payments</td>
+                    <td>Legality & Secrecy</td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td><strong>Up in the air</strong></td>
+                    <td>Unresolved, uncertain, or undecided</td>
+                    <td>Uncertainty</td>
+                </tr>
+                <tr>
+                    <td>76</td>
+                    <td><strong>Weather the storm</strong></td>
+                    <td>Endure a difficult period of time without succumbing</td>
+                    <td>Endurance & Courage</td>
+                </tr>
+                <tr>
+                    <td>77</td>
+                    <td><strong>Well begun is half done</strong></td>
+                    <td>A good beginning makes it easier to complete a task successfully</td>
+                    <td>Preparation & Start</td>
+                </tr>
+                <tr>
+                    <td>78</td>
+                    <td><strong>When pigs fly</strong></td>
+                    <td>Something that will never happen</td>
+                    <td>Impossibility</td>
+                </tr>
+                <tr>
+                    <td>79</td>
+                    <td><strong>You can't judge a book by its cover</strong></td>
+                    <td>Outward appearance is not an indicator of true value or character</td>
+                    <td>Judgement & Appearance</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td><strong>Burn the midnight oil</strong></td>
+                    <td>To study or work late into the night</td>
+                    <td>Effort & Work</td>
+                </tr>
+                <tr>
+                    <td>81</td>
+                    <td><strong>Burn bridges</strong></td>
+                    <td>Destroy relationships or connections permanently</td>
+                    <td>Relationships</td>
+                </tr>
+                <tr>
+                    <td>82</td>
+                    <td><strong>Bite the hand that feeds you</strong></td>
+                    <td>Turn against or harm someone who supports or helps you</td>
+                    <td>Betrayal & Gratitude</td>
+                </tr>
+                <tr>
+                    <td>83</td>
+                    <td><strong>Blow off steam</strong></td>
+                    <td>Release pent-up anger or stress through physical activity or talk</td>
+                    <td>Stress & Emotion</td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td><strong>Call a spade a spade</strong></td>
+                    <td>Speak plainly and directly about something, even if rude</td>
+                    <td>Honesty & Directness</td>
+                </tr>
+                <tr>
+                    <td>85</td>
+                    <td><strong>Caught between a rock and a hard place</strong></td>
+                    <td>Faced with two equally difficult or unpleasant choices</td>
+                    <td>Dilemma & Decision</td>
+                </tr>
+                <tr>
+                    <td>86</td>
+                    <td><strong>Cross your fingers</strong></td>
+                    <td>Hope for good luck or a favourable outcome</td>
+                    <td>Luck & Hope</td>
+                </tr>
+                <tr>
+                    <td>87</td>
+                    <td><strong>Cry wolf</strong></td>
+                    <td>Raise a false alarm repeatedly so people stop believing you</td>
+                    <td>Trust & Honesty</td>
+                </tr>
+                <tr>
+                    <td>88</td>
+                    <td><strong>Face the music</strong></td>
+                    <td>Accept the unpleasant consequences of one's actions</td>
+                    <td>Accountability</td>
+                </tr>
+                <tr>
+                    <td>89</td>
+                    <td><strong>Get cold feet</strong></td>
+                    <td>To suddenly become nervous and reconsider a big decision</td>
+                    <td>Fear & Hesitation</td>
+                </tr>
+                <tr>
+                    <td>90</td>
+                    <td><strong>Give someone a run for their money</strong></td>
+                    <td>Provide strong competition or a tough challenge</td>
+                    <td>Competition & Skill</td>
+                </tr>
+                <tr>
+                    <td>91</td>
+                    <td><strong>Have a heart of gold</strong></td>
+                    <td>Be extremely kind, generous, and caring</td>
+                    <td>Character & Kindness</td>
+                </tr>
+                <tr>
+                    <td>92</td>
+                    <td><strong>Hit the books</strong></td>
+                    <td>To study hard</td>
+                    <td>Education & Effort</td>
+                </tr>
+                <tr>
+                    <td>93</td>
+                    <td><strong>Keep your chin up</strong></td>
+                    <td>Remain cheerful and optimistic during difficult times</td>
+                    <td>Encouragement</td>
+                </tr>
+                <tr>
+                    <td>94</td>
+                    <td><strong>Leave no stone unturned</strong></td>
+                    <td>Try every possible means to achieve a goal or find a solution</td>
+                    <td>Thoroughness</td>
+                </tr>
+                <tr>
+                    <td>95</td>
+                    <td><strong>Off the top of my head</strong></td>
+                    <td>Without thinking deeply or calculating precise figures</td>
+                    <td>Recall & Estimation</td>
+                </tr>
+                <tr>
+                    <td>96</td>
+                    <td><strong>On cloud nine</strong></td>
+                    <td>Extremely happy and joyful</td>
+                    <td>Emotion & Joy</td>
+                </tr>
+                <tr>
+                    <td>97</td>
+                    <td><strong>Read between the lines</strong></td>
+                    <td>Understand hidden or implied meanings in communication</td>
+                    <td>Insight & Analysis</td>
+                </tr>
+                <tr>
+                    <td>98</td>
+                    <td><strong>Steal someone's thunder</strong></td>
+                    <td>Take attention or credit away from someone else's achievement</td>
+                    <td>Credit & Competition</td>
+                </tr>
+                <tr>
+                    <td>99</td>
+                    <td><strong>Through the grapevine</strong></td>
+                    <td>Hearing rumours or informal news passed from person to person</td>
+                    <td>Gossip & News</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td><strong>Turn a blind eye</strong></td>
+                    <td>Pretend not to notice something wrong or illegal</td>
+                    <td>Avoidance & Ignorance</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER NOTE -->
+    <div class="doc-footer">
+        <span>Top 100 English Idioms</span>
+        <span>@SammohanNotes</span>
+    </div>
+
+</div>
+
+</body>
+</html>
